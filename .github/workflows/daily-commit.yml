@@ -21,18 +21,18 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
+          cache: 'yarn'
 
       - name: Install dependencies
-        run: npm ci
+        run: yarn install --frozen-lockfile
 
       - name: Configure git
         run: |
           git config user.name "Jérémy Magrin"
-          git config user.email "jeremymagrin@gmail.com"
+          git config user.email "jeremy.magrin@gmail.com"
 
       - name: Run daily commit script
-        run: npm run daily
+        run: yarn daily
 
       - name: Push changes
         run: |
