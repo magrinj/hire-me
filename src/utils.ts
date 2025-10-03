@@ -2,7 +2,8 @@
  * Utility functions for commit generation
  */
 
-import type { DayOfWeek, CommitConfig, DEFAULT_CONFIG } from './types';
+import type { DayOfWeek, CommitConfig } from './types';
+import { DEFAULT_CONFIG } from './types';
 
 /**
  * Professional commit messages to rotate through
