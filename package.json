@@ -1,0 +1,27 @@
+{
+  "name": "hire-me",
+  "version": "1.0.0",
+  "description": "Automated GitHub activity generator to showcase consistent development habits",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "backfill": "tsx src/backfill.ts",
+    "daily": "tsx src/daily-commit.ts",
+    "dev": "tsx watch src/daily-commit.ts"
+  },
+  "keywords": [
+    "github",
+    "automation",
+    "commits"
+  ],
+  "author": "Jérémy Magrin <jeremymagrin@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "typescript": "^5.3.3",
+    "tsx": "^4.7.0"
+  },
+  "dependencies": {
+    "simple-git": "^3.22.0"
+  }
+}
