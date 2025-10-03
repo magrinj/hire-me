@@ -4,7 +4,7 @@
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/jeremy-magrin/)
 [![Malt](https://img.shields.io/badge/Malt-Profile-red?style=for-the-badge)](https://www.malt.fr/profile/jeremymagrin)
-[![Email](https://img.shields.io/badge/Email-Contact-green?style=for-the-badge&logo=gmail)](mailto:jeremymagrin@gmail.com)
+[![Email](https://img.shields.io/badge/Email-Contact-green?style=for-the-badge&logo=gmail)](mailto:contact@magrin.fr)
 
 </div>
 
@@ -166,7 +166,7 @@ I'm always open to discussing new opportunities, exciting projects, and collabor
 ### Ready to bring your vision to life?
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Let's_Connect-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/jeremy-magrin/)
-[![Email](https://img.shields.io/badge/Email-jeremymagrin@gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:jeremymagrin@gmail.com)
+[![Email](https://img.shields.io/badge/Email-jeremymagrin@gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:contact@magrin.fr)
 [![Malt](https://img.shields.io/badge/Malt-View_Profile-FC5757?style=for-the-badge)](https://www.malt.fr/profile/jeremymagrin)
 [![Phone](https://img.shields.io/badge/Phone-+33_6_73_12_19_30-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](tel:+33673121930)
 
@@ -174,16 +174,21 @@ I'm always open to discussing new opportunities, exciting projects, and collabor
 
 ---
 
-## 📈 This Repository
+## 📈 About This Repository
 
-This repository demonstrates my commitment to **consistent development habits** and **continuous learning**. The automated commit system showcases:
+The goal of this repository is simple: maintaining a GitHub contribution heatmap that is fully green 😅
 
-- **TypeScript** best practices with strict typing
-- **GitHub Actions** CI/CD automation
-- **Clean code** architecture and organization
-- **Daily dedication** to software development
+As you know, recruiters sometimes look at GitHub activity, but when you work as a freelancer on other platforms like GitLab, or contribute to private repositories, your public GitHub profile doesn't always reflect your actual work. That's why I created this repository—to showcase my skills, share my professional profile in an accessible format, and maintain consistent GitHub activity through automated daily commits via CI/CD.
 
-*Looking for a developer who codes with passion every single day? You've found the right person!*
+**Feel free to fork this if you're a freelancer facing the same challenge!** Have fun 😉
+
+<div align="center">
+
+### 🟩 GitHub Contributions
+
+![GitHub Contribution Grid](https://ghchart.rshah.org/magrinj)
+
+</div>
 
 ---
 
