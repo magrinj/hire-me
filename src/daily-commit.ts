@@ -19,6 +19,10 @@ import type { ActivityRecord } from './types';
 const ACTIVITY_FILE = path.join(__dirname, '..', 'activity.json');
 const git: SimpleGit = simpleGit();
 
+// Parse command line arguments
+const args = process.argv.slice(2);
+const DEBUG_MODE = args.includes('-d') || args.includes('--debug');
+
 /**
  * Read current activity data
  */
@@ -41,7 +45,7 @@ async function writeActivityData(records: ActivityRecord[]): Promise<void> {
 /**
  * Create a commit for today
  */
-async function createCommit(message: string): Promise<void> {
+async function createCommit(message: string, debugMode: boolean = false): Promise<void> {
   const records = await readActivityData();
   const now = new Date();
 
@@ -54,6 +58,11 @@ async function createCommit(message: string): Promise<void> {
 
   records.push(newRecord);
   await writeActivityData(records);
+
+  if (debugMode) {
+    console.log(`✓ Activity record added (debug mode - no commit): ${message}`);
+    return;
+  }
 
   // Git add and commit
   await git.add(ACTIVITY_FILE);
@@ -96,8 +105,12 @@ async function pushToRemote(): Promise<void> {
 /**
  * Main daily commit function
  */
-async function dailyCommit(): Promise<void> {
+async function dailyCommit(debugMode: boolean = false): Promise<void> {
   console.log('🚀 Starting daily commit process...\n');
+
+  if (debugMode) {
+    console.log('🐛 DEBUG MODE: Only updating activity.json, no git commits will be created\n');
+  }
 
   const today = new Date();
   console.log(`📅 Today: ${today.toDateString()}\n`);
@@ -109,17 +122,19 @@ async function dailyCommit(): Promise<void> {
     return;
   }
 
-  // Configure git for CI environments
-  await configureGit();
+  // Configure git for CI environments (skip in debug mode)
+  if (!debugMode) {
+    await configureGit();
+  }
 
   // Get random number of commits for today
   const commitsToday = getRandomCommitCount();
-  console.log(`📊 Creating ${commitsToday} commit(s) today\n`);
+  console.log(`📊 Creating ${commitsToday} ${debugMode ? 'activity record(s)' : 'commit(s)'} today\n`);
 
   // Create commits
   for (let i = 0; i < commitsToday; i++) {
     const message = getRandomCommitMessage();
-    await createCommit(message);
+    await createCommit(message, debugMode);
 
     // Small delay between commits
     if (i < commitsToday - 1) {
@@ -127,16 +142,18 @@ async function dailyCommit(): Promise<void> {
     }
   }
 
-  // Push to remote
-  console.log('');
-  await pushToRemote();
+  // Push to remote (skip in debug mode)
+  if (!debugMode) {
+    console.log('');
+    await pushToRemote();
+  }
 
-  console.log(`\n✅ Daily commit complete!`);
-  console.log(`📈 Total commits today: ${commitsToday}`);
+  console.log(`\n✅ Daily ${debugMode ? 'debug run' : 'commit'} complete!`);
+  console.log(`📈 Total ${debugMode ? 'records' : 'commits'} today: ${commitsToday}`);
 }
 
 // Run the daily commit
-dailyCommit().catch((error: Error) => {
+dailyCommit(DEBUG_MODE).catch((error: Error) => {
   console.error('❌ Error during daily commit:', error.message);
   process.exit(1);
 });
